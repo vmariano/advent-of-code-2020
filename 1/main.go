@@ -207,8 +207,18 @@ func getFullList() []int {
 	}
 }
 
-func main() {
-	numberList := getFullList()
+func getPartialList() []int {
+	return []int{
+		1721,
+		979,
+		366,
+		299,
+		675,
+		1456,
+	}
+}
+
+func twoEntries(numberList []int) {
 	for i := 0; i < len(numberList); i++ {
 		for j := i + 1; j < len(numberList); j++ {
 			a := numberList[i]
@@ -220,4 +230,29 @@ func main() {
 			}
 		}
 	}
+}
+
+func threeEntries(numberList []int) {
+	for i := 0; i < len(numberList); i++ {
+		for j := i + 1; j < len(numberList); j++ {
+			for k := j + 1; k < len(numberList); k++ {
+				a := numberList[i]
+				b := numberList[j]
+				c := numberList[k]
+				if (a + b + c) == 2020 {
+					fmt.Print("Number ", a)
+					fmt.Print(" , ", b)
+					fmt.Println("  and ", c)
+					fmt.Println("multiply ", a*b*c)
+				}
+			}
+		}
+	}
+}
+
+func main() {
+	twoEntries(getPartialList())
+	twoEntries(getFullList())
+	threeEntries(getPartialList())
+	threeEntries(getFullList())
 }
